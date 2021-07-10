@@ -22,7 +22,7 @@ public class SpringbootJenkinsApplication {
 
 	public static void main(String[] args) {
 		
-		logger.info("Application  Executed ...... ");
+		logger.info("Application  Executing ...... ");
 
 		SpringApplication.run(SpringbootJenkinsApplication.class, args);
 	}
