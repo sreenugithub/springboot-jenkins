@@ -18,5 +18,5 @@ EXPOSE 8000
 
 # Run the jar file
 #ENTRYPOINT ["java","-Dserver.port=8087","-Djava.security.egd=file:/dev/./urandom","-jar","/benefit-standing-data-service.jar"]
-ADD target/docker-jenkins-integration-sample.jar docker-jenkins-integration-sample.jar
-ENTRYPOINT ["java","-jar","/docker-jenkins-integration-sample.jar"]
+ADD target/docker.jar docker.jar
+ENTRYPOINT ["java","-jar","/docker.jar"]

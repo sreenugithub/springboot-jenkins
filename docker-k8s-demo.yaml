@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: docker-k8s-demo-deployment
+  name: monu-deployment
   labels:
-    app: docker-k8s-demo
+    app: monu
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: docker-k8s-demo
+      app: monu
   template:
     metadata:
       labels:
-        app: docker-k8s-demo
+        app: monu
     spec:
       containers:
-      - name: docker-k8s-demo
-        image: sreenuadr/docker-jenkins-integration-sample
+      - name: monu
+        image: sreenuadr/dockertest
         ports:
         - containerPort: 8080
