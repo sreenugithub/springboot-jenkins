@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
 	
-@GetMapping("/message")
+@GetMapping("/messages")
 public String getMessage() {
 	
 	return "SpringBoot project with Docker test ...";
