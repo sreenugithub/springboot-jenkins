@@ -1,31 +1,26 @@
 pipeline {
     agent any
-
     stages {
-        stage ('Compile Stage') {
-
+        stage('git repo & clean') {
             steps {
-                withMaven(maven : 'MAVEN_HOME') {
-                    sh 'mvn clean compile'
-                }
+               bat "rmdir  /s /q springboot-jenkins"
+                bat "git clone https://github.com/sreenugithub/springboot-jenkins.git"
+                bat "mvn clean -f springboot-jenkins"
             }
         }
-
-        stage ('Testing Stage') {
-
+        stage('install') {
             steps {
-                withMaven(maven : 'MAVEN_HOME') {
-                    sh 'mvn test'
-                }
+                bat "mvn install -f springboot-jenkins"
             }
         }
-
-
-        stage ('Deployment Stage') {
+        stage('test') {
             steps {
-                withMaven(maven : 'MAVEN_HOME') {
-                    sh 'mvn deploy'
-                }
+                bat "mvn test -f springboot-jenkins"
+            }
+        }
+        stage('package') {
+            steps {
+                bat "mvn package -f springboot-jenkins"
             }
         }
     }
